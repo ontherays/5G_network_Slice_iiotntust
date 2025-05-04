@@ -329,3 +329,11 @@ Install libidn-dev or libidn11-dev depending on your system
     Password : 1423
 
    Edit 'imsi-001010000000001'
+
+   ![Screenshot 2025-05-04 134254](https://github.com/user-attachments/assets/5b52a27a-fd7f-4c24-b6f4-6ad84eaecc2d)
+
+   Setting up subscribers
+
+   <img width="924" alt="image" src="https://github.com/user-attachments/assets/468fe548-7f62-46f3-9fc8-11ebd5c9090c" />
+
+
