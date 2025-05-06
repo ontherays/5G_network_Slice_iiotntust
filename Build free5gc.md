@@ -1,7 +1,3 @@
-## Goal:
-
-Write down the steps to for free5GC installation.
-
 ## Installation
 
 ### [Free5GC] Installation Guide
