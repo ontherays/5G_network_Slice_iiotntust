@@ -11,10 +11,10 @@
 
 
 ### Architecture
-![image](https://github.com/user-attachments/assets/35752c85-74e8-45cf-a6b0-2866ab93a291)
+![screenshot](https://github.com/user-attachments/assets/35752c85-74e8-45cf-a6b0-2866ab93a291)
 
 ### Topology
-![image](https://github.com/user-attachments/assets/92a55ea9-bf7a-408e-b2e8-19322df7ce19)
+![screenshot](https://github.com/user-attachments/assets/92a55ea9-bf7a-408e-b2e8-19322df7ce19)
 
 ### **Key Components**:
 1. **UE (📱)**:
