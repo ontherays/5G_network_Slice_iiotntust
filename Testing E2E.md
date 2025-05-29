@@ -16,7 +16,7 @@
 
 2- Run gNB
 
-   $ cd UERABSIM
+   $ cd UERANSIM
    
    $ sudo ./build/nr-gNB -c config/open5gs-gNB.yaml
    
