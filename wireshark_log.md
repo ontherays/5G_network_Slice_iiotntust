@@ -20,6 +20,7 @@ ip.addr == 127.0.0.10
 
 ### UE logs
 
-<img width="848" alt="image" src="https://github.com/user-attachments/assets/4720e2b6-d169-43f2-b055-17c6c09d1c6d" />
+![Screenshot 2025-05-30 232207](https://github.com/user-attachments/assets/219f44c2-d755-409b-9c2c-74e6aaa61aec)
+
 
 
