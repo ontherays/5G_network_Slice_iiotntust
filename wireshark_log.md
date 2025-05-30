@@ -12,13 +12,18 @@
 
 ### Checking UERANSIM gNB log
 
-If gNB runs on a separate IP (e.g., 127.0.0.10), filter:
+- If gNB runs on a separate IP (e.g., 127.0.0.10), filter:
 
-ip.addr == 127.0.0.10
+- ip.addr == 127.0.0.10
 
 <img width="850" alt="image" src="https://github.com/user-attachments/assets/ba82403a-b6d9-46e9-8f13-5783a5db0de8" />
 
 ### UE logs
+
+1- Source UE- ping 10.45.0.2  # Ping UE IP from host (should respond)
+
+2- ping 8.8.8.8    # Ping external IP from host (should respond)
+
 
 ![Screenshot 2025-05-30 232207](https://github.com/user-attachments/assets/219f44c2-d755-409b-9c2c-74e6aaa61aec)
 
