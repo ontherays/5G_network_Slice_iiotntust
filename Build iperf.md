@@ -39,14 +39,23 @@
 ### Verify testing to UE to IOT devices which will emulate UE as Vehicle and IOT as other things(Everrything)
 
 1- Crete EC2 instance on AWS
+
 2- Set inbound traffic rules
+
   Edit inbound rules:
+  
     Type: Custom TCP
+    
     Port range: 5201
+    
     Source: Your lab PC's public IP (you can find it via https://ifconfig.me)
+    
 3- SSH into EC2:
 ssh -i EC2Key_Pair.pem ubuntu@3.84.42.160
+
 4- iperf3 -s
+
+
 
 
 
