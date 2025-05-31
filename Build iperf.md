@@ -39,7 +39,7 @@
 
 <img width="917" alt="Screenshot 2025-05-31 112716" src="https://github.com/user-attachments/assets/9aa6aea8-79d1-438f-8905-29f6d60a0c53" />
 
-### Verify testing to UE to IOT devices which will emulate UE as Vehicle and IOT as other things(Everrything)
+### Verify UE to IOT devices connection which will emulate UE(Vehicle) and IOT as other things(Everrything)
 
 1- Crete EC2 instance on AWS
 
