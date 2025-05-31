@@ -1,7 +1,3 @@
-Here's a comprehensive, step-by-step summary of the entire configuration and setup process you performed today to get Open5GS working with UERANSIM for a successful PDU session establishment:
-
----
-
 ## ✅ **System Overview**
 
 * **Core Network:** Open5GS (built from source)
@@ -171,4 +167,134 @@ Log confirmed:
 * ✅ Ordered startup for NFs via custom script.
 * ✅ Valid UE registration and data session using UERANSIM.
 
-Let me know if you'd like a backup export of your YAML config files or help scripting auto-testing later.
+## Testing
+
+Here’s a **detailed summary** of the entire **end-to-end debugging and testing process** you've performed, including all relevant **commands, configurations, and outcomes**. This focuses on **Open5GS + UERANSIM + iperf3 testing with EC2**, covering local and remote connectivity, NAT, and network slicing readiness.
+
+---
+
+## ✅ **1. Setup Overview**
+
+### ✔️ Components
+
+* **Open5GS 5GC**: Built from source and running on your lab PC.
+* **UERANSIM**: Used to simulate UE and connect to the 5GC.
+* **Amazon EC2**: Remote server used as `iperf3` server.
+* **Interface Setup**:
+
+  * `ogstun` – Core network interface for 5GC.
+  * `uesimtun0` – Created by UERANSIM, IP: `10.45.0.2`
+
+---
+
+## ✅ **2. Local Network Tests**
+
+### ✔️ Ping from host
+
+```bash
+ping 10.45.0.2     # ✅ success
+ping 8.8.8.8       # ✅ success from host
+ping -I uesimtun0 8.8.8.8  # ❌ failed
+```
+
+### ✔️ Reason: No NAT for `uesimtun0`
+
+---
+
+## ✅ **3. NAT Configuration for UE Traffic**
+
+### ✔️ Enable IP forwarding
+
+```bash
+sudo sysctl -w net.ipv4.ip_forward=1
+echo "net.ipv4.ip_forward = 1" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+```
+
+### ✔️ Set NAT on correct interface (`wlp58s0`)
+
+```bash
+sudo iptables -t nat -A POSTROUTING -s 10.45.0.0/16 -o wlp58s0 -j MASQUERADE
+```
+
+---
+
+## ✅ **4. EC2 Instance Setup for `iperf3`**
+
+### ✔️ EC2 Configuration
+
+* **AMI**: Ubuntu 22.04
+* **Security Group Rules**:
+
+  ```text
+  Inbound Rule:
+  Type: Custom TCP
+  Port: 5201
+  Source: <Your Public IP>/32
+  ```
+
+### ✔️ Start iperf3 server on EC2
+
+```bash
+iperf3 -s
+```
+
+---
+
+## ✅ **5. iperf3 Tests**
+
+### ❌ Initial attempt (failed):
+
+```bash
+iperf3 -c <EC2_PUBLIC_IP> -B 10.45.0.2 -t 10
+# Error: unable to send control message: Bad file descriptor
+```
+
+### ✔️ Wireshark Debug:
+
+* TCP SYN from `10.45.0.2` seen.
+* No SYN-ACK → EC2 didn't respond.
+
+### ✔️ Root Cause:
+
+* EC2 never sees a public IP.
+* Without NAT, UE IP `10.45.0.2` is **non-routable**.
+
+---
+
+## ✅ **6. Fix: NAT and Route Verification**
+
+### ✔️ Verify routing
+
+```bash
+ip route get 8.8.8.8
+# Confirmed outgoing via wlp58s0
+```
+
+### ✔️ iptables verification
+
+```bash
+sudo iptables -t nat -L -n -v
+```
+
+---
+
+## ✅ **7. Final `iperf3` Test Plan**
+
+### After NAT is set:
+
+```bash
+ping -I uesimtun0 8.8.8.8         # ✅ should succeed
+iperf3 -c <EC2_PUBLIC_IP> -B 10.45.0.2 -t 10  # ✅ should now work
+```
+
+---
+
+## ✅ **8. iperf3 for Latency + Jitter (Optional)**
+
+```bash
+# UDP test for jitter and packet loss
+iperf3 -c <EC2_PUBLIC_IP> -B 10.45.0.2 -u -b 1M -t 10
+```
+
+
