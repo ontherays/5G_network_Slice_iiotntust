@@ -96,6 +96,26 @@ UE 2 - uesimtun0, 10.45.0.9
 
 <img width="1049" alt="Screenshot 2025-05-31 192529" src="https://github.com/user-attachments/assets/c4bcab9b-2239-46e1-b581-e5714470da0a" />
 
+Verify both UE can ping each Other-
+
+<img width="505" alt="Screenshot 2025-05-31 195808" src="https://github.com/user-attachments/assets/47378af8-5cb5-455f-bc41-ae3068b5b181" />
+
+#### Iperf from UE 1 to UE 2.
+
+  - iperf3 -c 10.45.0.9 -B 10.45.0.8 -t 10
+
+  <img width="515" alt="Screenshot 2025-05-31 200643" src="https://github.com/user-attachments/assets/99182b30-22d4-4769-97fd-9053c6097eb3" />
+
+#### Iperf from UE 2 to UE 1.
+
+  - iperf3 -c 10.45.0.8 -B 10.45.0.9 -t 10
+
+    <img width="512" alt="Screenshot 2025-05-31 201456" src="https://github.com/user-attachments/assets/00676e01-6557-4a68-86bb-2168179aafe7" />
+
+
+
+
+
 
 
 
