@@ -55,11 +55,13 @@ ssh -i EC2Key_Pair.pem ubuntu@3.84.42.160
 
 4- iperf3 -s
 
-![Screenshot 2025-05-31 135647](https://github.com/user-attachments/assets/56026855-f5a1-4428-8c18-9cd697851dbf)
+<img width="485" alt="image" src="https://github.com/user-attachments/assets/1c378583-acba-4845-b71b-1563f65d8dae" />
+
 
 5- iperf3 -c 3.84.42.160 -t 30 -i 5
 
-<img width="483" alt="image" src="https://github.com/user-attachments/assets/d08d2170-7286-41c5-bcd3-6ccb42d68207" />
+<img width="484" alt="image" src="https://github.com/user-attachments/assets/1defc506-2526-4e34-ae36-5b43c0ad3b15" />
+
 
 
 
