@@ -65,6 +65,37 @@ ssh -i EC2Key_Pair.pem ubuntu@3.84.42.160
 
 <img width="484" alt="image" src="https://github.com/user-attachments/assets/1defc506-2526-4e34-ae36-5b43c0ad3b15" />
 
+## Vehicle(UE) to Vehicle(UE)
+
+ - Configuration
+   
+ 1- amf.yaml
+ 
+       ~~~
+     - smf:
+      pdn:
+        - addr: 10.45.0.1/16
+          dnn: internet
+      ~~~
+  2- login webui - Enter subscriber
+   imsi-001010000000002
+
+  3- Create open5gs-ue2.yaml in UERANSIM with new subscriber.
+
+  4- Run Open5gs
+
+  5- Run open5gs-gNB.yaml
+
+  6- Run open5gs-ue.yaml and open5gs-ue2.yaml in seperate windows.
+
+  
+
+UE 1 - uesimtun0, 10.45.0.8
+
+UE 2 - uesimtun0, 10.45.0.9
+
+<img width="1049" alt="Screenshot 2025-05-31 192529" src="https://github.com/user-attachments/assets/c4bcab9b-2239-46e1-b581-e5714470da0a" />
+
 
 
 
