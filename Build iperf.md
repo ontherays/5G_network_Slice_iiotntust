@@ -12,15 +12,28 @@
 
 ## Test UE ↔ Core (Loopback Core Test)
 
-### Run client using UE's TUN IP 
+### Run UE as Client TUN IP 
 
-iperf3 -c 127.0.0.1 -B 10.45.0.2
+1- open Terminal - iperf3 -s 127.0.0.1 # Server
+
+2- Open another Terminal iperf3 -c 127.0.0.1 -B 10.45.0.2
 
 <img width="482" alt="image" src="https://github.com/user-attachments/assets/e39e5146-6238-46f3-8eb7-35f9e3e823ad" />
 
 ### wireshark log
 
 <img width="918" alt="image" src="https://github.com/user-attachments/assets/435a713a-d072-4f71-8d55-fb225f3028fb" />
+
+### Run UE as server
+
+1- open Terminal - iperf3 -s 10.45.0.2 # Server
+
+2- Open another Terminal
+
+iperf3 -c 10.45.0.2 -B 127.0.0.1
+
+
+
 
 
 
