@@ -145,146 +145,88 @@ Install libidn-dev or libidn11-dev depending on your system
 
 ### Running Open5GS
 
- $ sudo nano start_open5gs.sh
+ $ sudo nano start_check_open5gs.sh
 
-      ```
-         #!/bin/bash
-
-      # Open5GS Start Script
-      # Usage: ./start_open5gs.sh
-
-      OPEN5GS_INSTALL_DIR="./install/bin"  # (adjust if needed)
-      OPEN5GS_DAEMONS=(
-         "open5gs-nrfd"
-         "open5gs-scpd"
-         "open5gs-amfd"
-         "open5gs-smfd"
-         "open5gs-ausfd"
-         "open5gs-udmd"
-         "open5gs-pcfd"
-         "open5gs-nssfd"
-         "open5gs-bsfd"
-         "open5gs-udrd"
-         "open5gs-upfd"
-      )
-
-      # Check if Open5GS is installed
-      check_installation() {
-         for daemon in "${OPEN5GS_DAEMONS[@]}"; do
-            if [ ! -f "$OPEN5GS_INSTALL_DIR/$daemon" ]; then
-                  echo "[ERROR] $daemon not found in $OPEN5GS_INSTALL_DIR. Did you install Open5GS correctly?"
-                  exit 1
-            fi
-         done
-      }
-
-      # Start Open5GS
-      start_open5gs() {
-         echo "Starting Open5GS..."
-         for daemon in "${OPEN5GS_DAEMONS[@]}"; do
-            echo "Starting $daemon..."
-            sudo "$OPEN5GS_INSTALL_DIR/$daemon" &
-            sleep 1  # Small delay to avoid race conditions
-         done
-         echo "Open5GS started successfully!"
-      }
-
-      # Main execution
-      check_installation
-      start_open5gs
-      ```
-
-   $ chmod +x start_open5gs.sh #permision
-   $ ./start_open5gs.sh # run
-
-
-### Check Status of Open5GS
-
-   $ sudo nano status_open5gs.sh
-
-
-
-      ```
+```
       #!/bin/bash
+# start-open5gs.sh - Starts Open5GS 5GC network functions in correct order (for 5G SA)
 
-      # Open5GS Status Script
-      # Usage: ./status_open5gs.sh
+# Ordered list of Open5GS 5GC services, respecting typical NF dependencies and startup order
+services=(
+  open5gs-nrfd    # NRF must start first
+  open5gs-bsfd    # BSF
+  open5gs-udrd    # UDR
+  open5gs-udmd    # UDM
+  open5gs-ausfd   # AUSF
+  open5gs-nssfd   # NSSF
+  open5gs-pcfd    # PCF
+#  open5gs-pcrfd   # PCRF (Policy Control Rule Function)
+  open5gs-seppd   # SEPP (Security Edge Protection Proxy)
+  open5gs-amfd    # AMF (after AUSF, NSSF, UDM, etc.)
+  open5gs-mmed    # MME-D (for EPS, optional in 5G SA)
+  open5gs-smfd    # SMF (after AMF)
+  open5gs-scpd    # SCPD (Service Communication Proxy Daemon)
+  open5gs-sgwcd   # SGW-C (Serving Gateway Control Plane)
+  open5gs-sgwud   # SGW-U (Serving Gateway User Plane)
+  open5gs-upfd    # UPF (after SMF, SGW-U)
+)
 
-      OPEN5GS_DAEMONS=(
-         "open5gs-nrfd"
-         "open5gs-scpd"
-         "open5gs-amfd"
-         "open5gs-smfd"
-         "open5gs-ausfd"
-         "open5gs-udmd"
-         "open5gs-pcfd"
-         "open5gs-nssfd"
-         "open5gs-bsfd"
-         "open5gs-udrd"
-         "open5gs-upfd"
-      )
+echo "▶️ Starting all Open5GS 5GC services in correct order..."
+for svc in "${services[@]}"; do
+  echo "Starting $svc.service"
+  sudo systemctl start "$svc.service"
+  sleep 1
+done
 
-      # Check status
-      status_open5gs() {
-         echo "Open5GS Status:"
-         for daemon in "${OPEN5GS_DAEMONS[@]}"; do
-            if pgrep -x "$daemon" > /dev/null; then
-                  echo "[RUNNING] $daemon"
-            else
-                  echo "[STOPPED] $daemon"
-            fi
-         done
-      }
+echo ""
+echo "📋 Checking status of all Open5GS 5GC services..."
+for svc in "${services[@]}"; do
+  echo "----------------------------------------"
+  echo "🔍 Status: $svc.service"
+  systemctl status "$svc.service" --no-pager --lines=5
+done
 
-      # Main execution
-      status_open5gs
-      ```
-
-   $ chmod +x status_open5gs.sh #permision
-
-   $ ./status_open5gs.sh # run
+```
 
 ### Stop of Open5GS
 
    $ sudo nano stop_open5gs.sh
 
-      ```
+ ```
       #!/bin/bash
+# stop-open5gs.sh - Stops all Open5GS 5GC services in reverse order
 
-      # Open5GS Stop Script
-      # Usage: ./stop_open5gs.sh
+services=(
+  open5gs-upfd
+  open5gs-sgwud
+  open5gs-sgwcd
+  open5gs-scpd
+  open5gs-smfd
+  open5gs-mmed
+  open5gs-amfd
+  open5gs-seppd
+  open5gs-pcrfd
+  open5gs-pcfd
+  open5gs-nssfd
+  open5gs-ausfd
+  open5gs-udmd
+  open5gs-udrd
+  open5gs-bsfd
+  open5gs-nrfd
+)
 
-      OPEN5GS_DAEMONS=(
-         "open5gs-nrfd"
-         "open5gs-scpd"
-         "open5gs-amfd"
-         "open5gs-smfd"
-         "open5gs-ausfd"
-         "open5gs-udmd"
-         "open5gs-pcfd"
-         "open5gs-nssfd"
-         "open5gs-bsfd"
-         "open5gs-udrd"
-         "open5gs-upfd"
-      )
+echo "⏹️ Stopping all Open5GS 5GC services in reverse order..."
+for svc in "${services[@]}"; do
+  echo "Stopping $svc.service"
+  sudo systemctl stop "$svc.service"
+done
 
-      # Stop Open5GS
-      stop_open5gs() {
-         echo "Stopping Open5GS..."
-         for daemon in "${OPEN5GS_DAEMONS[@]}"; do
-            if pgrep -x "$daemon" > /dev/null; then
-                  echo "Stopping $daemon..."
-                  sudo pkill -9 -x "$daemon"
-            fi
-         done
-         echo "Open5GS stopped successfully!"
-      }
+echo "✅ All services stopped."
 
-      # Main execution
-      stop_open5gs
-      ```
-   $ chmod +x stop_open5gs.sh #permision
-   $ ./stop_open5gs.sh # run
+ ```
+
+$ chmod +x stop_open5gs.sh #permision
+$ ./stop_open5gs.sh # run
 
 
 ### Building the WebUI of Open5GS
