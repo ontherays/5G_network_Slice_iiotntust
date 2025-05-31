@@ -298,3 +298,82 @@ iperf3 -c <EC2_PUBLIC_IP> -B 10.45.0.2 -u -b 1M -t 10
 ```
 
 
+## Issue and check logs
+
+Here's a **summary of the last 5 responses**, including **commands and their purpose**:
+
+---
+
+### ✅ **1. Check Why SMF Failed**
+
+**Command:**
+
+```bash
+/home/ravi/open5gs/install/bin/open5gs-smfd -c /home/ravi/open5gs/install/etc/open5gs/smf.yaml
+```
+
+**Purpose:**
+Run the SMF binary manually to view the real-time error message that caused the systemd service to fail. This helps debug YAML or config issues.
+
+---
+
+### ✅ **2. Validate YAML Format**
+
+**Command (optional but recommended):**
+
+```bash
+sudo apt install yamllint
+yamllint /home/ravi/open5gs/install/etc/open5gs/smf.yaml
+```
+
+**Purpose:**
+Check for YAML formatting issues like incorrect indentation or invalid structure, which can crash Open5GS services.
+
+---
+
+### ✅ **3. Correct `smf.yaml` Network Slice Syntax**
+
+**Key Configuration:**
+
+```yaml
+session:
+  - subnet: 10.45.0.0/16
+    gateway: 10.45.0.1
+    dnn: internet
+    s_nssai:
+      - sst: 1
+        sd: 010203
+      - sst: 1
+        sd: 112233
+```
+
+**Purpose:**
+Ensure SMF is configured to recognize two different network slices by SST/SD for slice-aware IP allocation and traffic control.
+
+---
+
+### ✅ **4. Reload and Restart the SMF Service**
+
+**Commands:**
+
+```bash
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl restart open5gs-smfd.service
+```
+
+**Purpose:**
+Apply recent changes to the systemd unit and restart the SMF cleanly after fixing the config.
+
+---
+
+### ✅ **5. General Troubleshooting Tip**
+
+**Website:**
+[https://codebeautify.org/yaml-validator](https://codebeautify.org/yaml-validator)
+
+**Purpose:**
+Provides an online way to check YAML files quickly for syntax errors that might break service startup.
+
+
+
