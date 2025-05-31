@@ -28,11 +28,13 @@
 
 1- open Terminal - iperf3 -s 10.45.0.2 # Server
 
-2- Open another Terminal
-
-iperf3 -c 10.45.0.2 -B 127.0.0.1
+2- Open another Terminal iperf3 -c 10.45.0.2 -B 127.0.0.1
 
 
+![Screenshot 2025-05-31 112404](https://github.com/user-attachments/assets/5788d467-f9fa-4bf3-94cd-bb9e12447d4e)
+
+
+<img width="917" alt="Screenshot 2025-05-31 112716" src="https://github.com/user-attachments/assets/9aa6aea8-79d1-438f-8905-29f6d60a0c53" />
 
 
 
