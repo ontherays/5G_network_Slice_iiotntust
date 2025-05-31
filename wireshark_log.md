@@ -27,5 +27,10 @@
 
 ![Screenshot 2025-05-30 232207](https://github.com/user-attachments/assets/219f44c2-d755-409b-9c2c-74e6aaa61aec)
 
+### Tesing UE to remote EC2 instance
+
+<img width="918" alt="image" src="https://github.com/user-attachments/assets/1936db87-5747-414f-9c10-b3a851779eaa" />
+
+
 
 
