@@ -167,10 +167,6 @@ Log confirmed:
 * ✅ Ordered startup for NFs via custom script.
 * ✅ Valid UE registration and data session using UERANSIM.
 
-## Testing
-
-Here’s a **detailed summary** of the entire **end-to-end debugging and testing process** you've performed, including all relevant **commands, configurations, and outcomes**. This focuses on **Open5GS + UERANSIM + iperf3 testing with EC2**, covering local and remote connectivity, NAT, and network slicing readiness.
-
 ---
 
 ## ✅ **1. Setup Overview**
@@ -375,5 +371,11 @@ Apply recent changes to the systemd unit and restart the SMF cleanly after fixin
 **Purpose:**
 Provides an online way to check YAML files quickly for syntax errors that might break service startup.
 
+
+---
+
+### Check network fuctions logs
+
+sudo systemctl restart open5gs-amfd <replace netwok function as required>
 
 
