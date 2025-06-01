@@ -380,4 +380,5 @@ sudo systemctl restart open5gs-amfd <replace netwok function as required>
 
 sudo systemctl status open5gs-amfd
 
+tail -f /home/ravi/open5gs/install/var/log/open5gs/amf.log
 
