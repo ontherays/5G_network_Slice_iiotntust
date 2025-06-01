@@ -1,8 +1,9 @@
-# AWS EC2 Configuration for V2X Emulation
+Here's a comprehensive AWS EC2 setup guide for your V2X emulation, incorporating all your previous IP configurations and test findings:
 
-## 1. Instance Specifications
-yaml
+### AWS EC2 Configuration for V2X Emulation
 
+**1. Instance Specifications**
+```yaml
 Type: c5.2xlarge (8 vCPUs, 16GB RAM)
 AMI: Ubuntu 22.04 LTS (ami-0c55b159cbfafe1f0)
 Storage: 50GB GP3 EBS
@@ -10,33 +11,33 @@ Security Group:
   - Inbound: TCP 22, 80, 7777, 38412, 2152, 9080
   - Outbound: All traffic
 Elastic IP: 54.210.178.33 (replace with your actual IP)
+```
 
-## 2. Network Configuration
-bash
-
+**2. Network Configuration**
+```bash
 # Configure secondary IPs (for multiple UEs)
 sudo ip addr add 10.45.0.100/24 dev eth0  # UPF IP
 sudo ip addr add 10.45.0.1/24 dev eth0     # UE1
 sudo ip addr add 10.45.0.2/24 dev eth0     # UE2
+```
 
-## 3. Core Components Installation
-bash
-
-### Open5GS Core
+**3. Core Components Installation**
+```bash
+# Open5GS Core
 sudo add-apt-repository ppa:open5gs/latest
 sudo apt install open5gs
 sudo cp /home/ubuntu/open5gs/install/etc/open5gs/amf.yaml /etc/open5gs/
 
-### UERANSIM
+# UERANSIM
 sudo apt install make gcc g++ libsctp-dev lksctp-tools
 git clone https://github.com/aligungr/UERANSIM
 cd UERANSIM && make
+```
 
-## 4. Configuration Files
+**4. Configuration Files**
 
-amf.yaml (Critical Excerpt)
-yaml
-
+**amf.yaml (Critical Excerpt)**
+```yaml
 amf:
   sbi:
     server:
@@ -51,10 +52,10 @@ amf:
       s_nssai:
         - sst: 1
           sd: "010203"
+```
 
-gnb.yaml
-yaml
-
+**gnb.yaml**
+```yaml
 mcc: '001'
 mnc: '01'
 linkIp: 10.45.0.100  # UPF IP
@@ -65,10 +66,10 @@ amfConfigs:
     s_nssai:
       - sst: 1
         sd: "010203"
+```
 
-## 5. AWS IoT Core Setup
-bash
-
+**5. AWS IoT Core Setup**
+```bash
 # Create IoT Policy
 aws iot create-policy --policy-name V2X-Policy \
   --policy-document '{
@@ -79,43 +80,39 @@ aws iot create-policy --policy-name V2X-Policy \
       "Resource":"*"
     }]
   }'
+```
 
-## 6. Test Execution
-bash
-
+**6. Test Execution**
+```bash
 # Start components in order:
 1. Open5GS: sudo systemctl start open5gs-amfd open5gs-upfd
 2. gNB: ./nr-gnb -c config/open5gs-gnb.yaml
 3. UE1: ./nr-ue -c config/ue1.yaml
 4. UE2: ./nr-ue -c config/ue2.yaml
 
-### Verify connections:
+# Verify connections:
 ping 10.45.0.1  # UE1
 ping 10.45.0.2  # UE2
+```
 
-## 7. Monitoring Setup
-bash
-
-### Install monitoring tools
+**7. Monitoring Setup**
+```bash
+# Install monitoring tools
 sudo apt install prometheus-node-exporter
 sudo systemctl enable prometheus-node-exporter
 
 # Grafana Dashboard (Port 3000)
 wget https://raw.githubusercontent.com/open5gs/open5gs/main/misc/grafana/5gc.json
+```
 
-Key Learnings from Your Tests:
+**Key Learnings from Your Tests:**
+1. The slice configuration (S-NSSAI) must match exactly between gNB and AMF
+2. Network name parameters are case-sensitive
+3. EC2 instance needs enhanced networking enabled for GTP-U performance
+4. Always start AMF before gNB to avoid SCTP connection issues
 
-    The slice configuration (S-NSSAI) must match exactly between gNB and AMF
-
-    Network name parameters are case-sensitive
-
-    EC2 instance needs enhanced networking enabled for GTP-U performance
-
-    Always start AMF before gNB to avoid SCTP connection issues
-
-Troubleshooting Checklist:
-bash
-
+**Troubleshooting Checklist:**
+```bash
 # Check AMF-gNB connection
 sudo tcpdump -i any port 38412 -n
 
@@ -124,3 +121,6 @@ curl http://10.45.0.100:7777/nnrf-nfm/v1/nf-instances | jq .
 
 # Check UE registration status
 open5gs-dbctl show
+```
+
+This configuration reflects all your previous IP assignments (10.45.0.1, 10.45.0.2, 10.45.0.100) and incorporates lessons from the slice configuration issues you encountered. The setup supports both V2V (PC5) and V2I (N6 to AWS IoT) communication paths.
