@@ -376,6 +376,6 @@ Provides an online way to check YAML files quickly for syntax errors that might 
 
 ### Check network fuctions logs
 
-sudo systemctl restart open5gs-amfd <replace netwok function as required>
+sudo systemctl status open5gs-amfd <replace netwok function as required>
 
 
