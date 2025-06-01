@@ -378,4 +378,5 @@ Provides an online way to check YAML files quickly for syntax errors that might 
 
 sudo systemctl status open5gs-amfd <replace netwok function as required>
 
+tail -f /home/ravi/open5gs/install/var/log/open5gs/amf.log
 
