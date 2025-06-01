@@ -2,13 +2,13 @@
 
 **1. Instance Specifications**
 ```yaml
-Type: c5.2xlarge (8 vCPUs, 16GB RAM)
+Type: t2.micro (2 vCPUs, 8GB RAM)
 AMI: Ubuntu 22.04 LTS (ami-0c55b159cbfafe1f0)
-Storage: 50GB GP3 EBS
+Storage: 20GB GP3 EBS
 Security Group: 
   - Inbound: TCP 22, 80, 7777, 38412, 2152, 9080
   - Outbound: All traffic
-Elastic IP: 54.210.178.33 (replace with your actual IP)
+Elastic IP: 54.210.178.33 
 ```
 
 **2. Network Configuration**
