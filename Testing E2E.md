@@ -18,7 +18,7 @@
 
    $ cd UERANSIM
    
-   $ sudo ./build/nr-gNB -c config/open5gs-gNB.yaml
+   $ sudo ./build/nr-gnb -c config/open5gs-gnb.yaml
    
    ![image](https://github.com/user-attachments/assets/7e9d5533-bfc2-4411-8855-12a66910e6a9)
 
