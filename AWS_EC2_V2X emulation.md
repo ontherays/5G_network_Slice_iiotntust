@@ -1,5 +1,3 @@
-Here's a comprehensive AWS EC2 setup guide for your V2X emulation, incorporating all your previous IP configurations and test findings:
-
 ### AWS EC2 Configuration for V2X Emulation
 
 **1. Instance Specifications**
@@ -121,6 +119,4 @@ curl http://10.45.0.100:7777/nnrf-nfm/v1/nf-instances | jq .
 
 # Check UE registration status
 open5gs-dbctl show
-```
 
-This configuration reflects all your previous IP assignments (10.45.0.1, 10.45.0.2, 10.45.0.100) and incorporates lessons from the slice configuration issues you encountered. The setup supports both V2V (PC5) and V2I (N6 to AWS IoT) communication paths.
