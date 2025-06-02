@@ -11,7 +11,8 @@
 
 1- ping -I uesimtun0 10.45.0.2
 
-<img width="365" alt="iperf latency" src="https://github.com/user-attachments/assets/8c6aa4a4-8aef-4500-b9c8-88a0bc385432" />
+![image](https://github.com/user-attachments/assets/3c9417ab-ef86-4b83-a99b-ab3e6ee2da63)
+
 
 ### Test UE Core (Loopback Core Test)
 
@@ -21,7 +22,8 @@
 
 2- Open another Terminal iperf3 -c 127.0.0.1 -B 10.45.0.2
 
-<img width="482" alt="image" src="https://github.com/user-attachments/assets/e39e5146-6238-46f3-8eb7-35f9e3e823ad" />
+![image](https://github.com/user-attachments/assets/bc4d5968-539c-4d24-bb31-cfaca7070b0d)
+
 
 
 
