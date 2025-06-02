@@ -5,6 +5,8 @@
    $ cd open5gs
    
    $ ./start_open5gs.sh
+
+
    
    <img width="368" alt="image" src="https://github.com/user-attachments/assets/042e18f4-499d-42c7-96bf-d5f7913d2784" />
 
