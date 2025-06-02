@@ -13,6 +13,10 @@
 ### Architecture
 ![System architecture](https://github.com/user-attachments/assets/7f664c23-9950-4f90-a535-5c3865dac649)
 
+### Sytem Architecture
+
+![image](https://github.com/user-attachments/assets/8269af39-9357-47a9-a5fa-a815253f1b51)
+
 
 ### Topology
 ![topology](https://github.com/user-attachments/assets/ed1aea41-36b8-4010-bebe-d5d25034adea)
