@@ -6,7 +6,7 @@
    
    $ ./start_open5gs.sh
 
-
+   ![image](https://github.com/user-attachments/assets/7039b3ea-8224-4bc0-9456-d786706e37b8)
    
    <img width="368" alt="image" src="https://github.com/user-attachments/assets/042e18f4-499d-42c7-96bf-d5f7913d2784" />
 
