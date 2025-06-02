@@ -1,9 +1,10 @@
 ## 5G_network_Slice_iiotntust
 This project aimed to design, simulate, and test a 5G network slicing framework for Vehicle-to-Everything (V2X) communications, ensuring ultra-low latency, high reliability, and efficient resource allocation.
 
-# System Architecture
+# System Framework
 
-![V2X_Open5gs](https://github.com/user-attachments/assets/8ae2d196-74e4-4587-990a-c5274b580bd0)
+![image](https://github.com/user-attachments/assets/98571224-337a-4898-a3d5-12eeb6584dc4)
+
 
 ### Key Updates & Annotations
 
