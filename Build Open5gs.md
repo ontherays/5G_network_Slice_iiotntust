@@ -10,12 +10,14 @@
 | Logs              | Wireshark          |
 
 
-### Architecture
-![System architecture](https://github.com/user-attachments/assets/7f664c23-9950-4f90-a535-5c3865dac649)
-
 ### Sytem Architecture
 
 ![image](https://github.com/user-attachments/assets/8269af39-9357-47a9-a5fa-a815253f1b51)
+
+
+### Architecture Design
+![System architecture](https://github.com/user-attachments/assets/7f664c23-9950-4f90-a535-5c3865dac649)
+
 
 
 ### Topology
