@@ -32,16 +32,27 @@
    Check AMF status:
     $ sudo service open5gs-amfd status
 
-   ![Screenshot 2025-05-01 134728](https://github.com/user-attachments/assets/097891c2-1deb-45df-827e-512dba18e3ef)
+   ![image](https://github.com/user-attachments/assets/f93b6c50-b714-4aa4-8088-3cc766884a1c)
+
 
 
 ## 3-  Run UE
 
    $ cd UERANSIM
    
+   UE1- uesimtun0, 10.45.0.3
+   
    $ sudo ./build/nr-ue -c config/open5gs-ue.yaml
    
-   ![Screenshot 2025-05-01 135113](https://github.com/user-attachments/assets/d2abe60c-0b6a-4e8a-998e-9f77468edbda)
+   ![image](https://github.com/user-attachments/assets/b4907c41-80f5-41f7-a91a-ae55484c7c99)
+   
+   $ sudo ./build/nr-ue -c config/open5gs-ue2.yaml
+
+   UE2 - uesimtun1, 10.45.0.4
+
+   ![image](https://github.com/user-attachments/assets/5c9dd830-a0a2-4946-8bf3-d37ab720d3f9)
+
+
 
    ## UERANSIM_Registartiob_Call Flow
 
