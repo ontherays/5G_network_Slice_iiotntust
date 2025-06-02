@@ -3,7 +3,7 @@ This project aimed to design, simulate, and test a 5G network slicing framework 
 
 # System Framework
 
-![image](https://github.com/user-attachments/assets/98571224-337a-4898-a3d5-12eeb6584dc4)
+![image](https://github.com/user-attachments/assets/23f853d6-235e-4e80-8a8c-c952af0f660a)
 
 
 ### Key Updates & Annotations
