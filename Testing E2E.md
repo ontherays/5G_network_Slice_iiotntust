@@ -25,7 +25,8 @@
    
    $ sudo ./build/nr-gnb -c config/open5gs-gnb.yaml
    
-   ![image](https://github.com/user-attachments/assets/7e9d5533-bfc2-4411-8855-12a66910e6a9)
+   ![image](https://github.com/user-attachments/assets/9e6333e2-988b-4507-9887-1186efc9784f)
+
 
 
    Check AMF status:
