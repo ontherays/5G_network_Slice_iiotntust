@@ -4,7 +4,7 @@
 
    $ cd open5gs
    
-   $ ./start_open5gs.sh
+   $ start-check-open5gs.sh
 
    ![image](https://github.com/user-attachments/assets/7039b3ea-8224-4bc0-9456-d786706e37b8)
    
