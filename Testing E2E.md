@@ -8,12 +8,15 @@
 
    ![image](https://github.com/user-attachments/assets/7039b3ea-8224-4bc0-9456-d786706e37b8)
    
-   <img width="368" alt="image" src="https://github.com/user-attachments/assets/042e18f4-499d-42c7-96bf-d5f7913d2784" />
 
 
-   $ ./status_open5gs
+   $ amf log
+
+   ![image](https://github.com/user-attachments/assets/12eff0dd-ac0c-450d-9c3f-163ab81a4df5)
+
+   ![image](https://github.com/user-attachments/assets/6bfbbd82-c268-44bc-a28b-332a196cb2c0)
+
    
-   ![image](https://github.com/user-attachments/assets/7922b1bd-91db-4822-997a-3e1b6c1473f2)
 
 
 ## 2- Run gNB
