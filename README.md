@@ -178,6 +178,7 @@ Running UEs in isolated VMs while maintaining seamless communication with the ho
 * Add Mobility support (Handover testing)
 * Integrate with a real Qualcomm 5G device for field simulation
 * Incorporate QXDM logs for deep packet inspection and diagnostics
+* Can have multiple slices to improve security. connectivity and reliability.
 * Extend to 5G SA slicing orchestration platforms like OpenSlice
 
 
