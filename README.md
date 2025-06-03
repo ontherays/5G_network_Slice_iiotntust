@@ -5,6 +5,10 @@ This project focuses on implementing and validating a 5G-based V2X (Vehicle-to-E
 
 ![image](https://github.com/user-attachments/assets/23f853d6-235e-4e80-8a8c-c952af0f660a)
 
+## System Architecture
+
+![Screenshot from 2025-06-03 17-37-55](https://github.com/user-attachments/assets/438eba2a-3910-48d8-bbeb-9aea6f651881)
+
 
 ### Key Updates & Annotations
 
@@ -122,6 +126,9 @@ Each UE, whether hosted or virtualized, is tested to:
 * IPs assigned within same subnet
 * Tested connectivity over `uesimtun0` interfaces
 * Static routes added where required
+
+  ![messageflow](https://github.com/user-attachments/assets/c08535a2-5abf-4260-a359-62c954b25d53)
+
 
 **3. UE to IoT Devices (V2X over Cloud):**
 
