@@ -192,12 +192,13 @@ amfConfigs:
     
     port: 38412
 
+![image](https://github.com/user-attachments/assets/c71656cd-b3c5-4920-9582-ae8ee2002d54)
 
-![Screenshot 2025-06-03 123107](https://github.com/user-attachments/assets/b6008a86-3c93-476f-bda7-c0b4d31711c6)
 
 Ping UE1 from UE3
 
-<img width="484" alt="image" src="https://github.com/user-attachments/assets/a2fac226-a694-4768-a5f9-68980208c5b5" />
+![image](https://github.com/user-attachments/assets/213191f8-bc06-47d8-857b-13ffca6a105d)
+
 
 
  
