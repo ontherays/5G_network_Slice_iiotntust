@@ -195,9 +195,13 @@ amfConfigs:
 ![image](https://github.com/user-attachments/assets/c71656cd-b3c5-4920-9582-ae8ee2002d54)
 
 
-Ping UE1 from UE3
+- Ping UE1 from UE3
 
 ![image](https://github.com/user-attachments/assets/213191f8-bc06-47d8-857b-13ffca6a105d)
+
+- Ping UE3 from UE 1
+
+![image](https://github.com/user-attachments/assets/e8e6da9a-9fdb-413c-9413-dd3409eb20cf)
 
 
 
