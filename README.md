@@ -18,21 +18,21 @@ This project focuses on implementing and validating a 5G-based V2X (Vehicle-to-E
 
   Icons for Clarity
 
-    🏢: AWS IoT Core
+    - AWS IoT Core
   
-    🖥️: V2X Application Server
+    - V2X Application Server
   
-    🗃️: Database (DynamoDB/Timestream)
+    - Database (DynamoDB/Timestream)
   
-    📊: Analytics (QuickSight/Grafana)
+    - Analytics (QuickSight/Grafana)
   
-    📡: AMF (Control Plane)
+    - AMF (Control Plane)
   
-    🔌: SMF (Session Management)
+    - SMF (Session Management)
   
-    🚀: UPF (User Plane)
+    - UPF (User Plane)
   
-    📶: gNodeB (RAN)
+    -  gNodeB (RAN)
   
     🚗/🚙: UEs (Vehicles)
   
