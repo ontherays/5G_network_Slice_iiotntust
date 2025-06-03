@@ -178,6 +178,21 @@
 
 #### UE3 on QEMU
 
+##### Configure gNB.yaml
+
+   linkIp: 192.168.122.234   # VM's IP
+   
+   ngapIp: 192.168.122.234
+   
+   gtpIp: 192.168.122.234
+
+amfConfigs:
+
+  - address: 192.168.122.1
+    
+    port: 38412
+
+
 ![Screenshot 2025-06-03 123107](https://github.com/user-attachments/assets/b6008a86-3c93-476f-bda7-c0b4d31711c6)
 
  
