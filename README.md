@@ -120,14 +120,14 @@ Each UE, whether hosted or virtualized, is tested to:
 * Establish PDU session and verify tunnel interface is up
 * Use `ping` and `iperf3` to test data path to core and internet
 
+  ![messageflow](https://github.com/user-attachments/assets/c08535a2-5abf-4260-a359-62c954b25d53)
+
 **2. UE to UE Communication (V2V):**
 
 * Both UEs connected to the same 5G core
 * IPs assigned within same subnet
 * Tested connectivity over `uesimtun0` interfaces
 * Static routes added where required
-
-  ![messageflow](https://github.com/user-attachments/assets/c08535a2-5abf-4260-a359-62c954b25d53)
 
 
 **3. UE to IoT Devices (V2X over Cloud):**
