@@ -50,9 +50,6 @@ Interfaces Labeled
 
     PC5: Sidelink (Direct V2V)
 
-
-    Sure, here’s a comprehensive technical project description based on your detailed setup and chat history:
-
 ---
 
 ### **Technical Project Description: Emulation and Testing of V2X/V2V Communications Using Open5GS and UERANSIM**
